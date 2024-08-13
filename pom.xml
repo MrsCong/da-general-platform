@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 打包方式 -->
+    <packaging>pom</packaging>
+    <modules>
+        <module>dgp-core</module>
+    </modules>
+    <!-- 全局Springboot版本 (包括test,web,starter) -->
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.6.3</version>
+        <relativePath/>
+    </parent>
+    <!-- maven坐标配置及项目版本号 -->
+    <groupId>com.dragon</groupId>
+    <artifactId>dragon-general-platform</artifactId>
+    <version>1.0.0</version>
+    <!-- 项目名称(使用坐标id或者自定义),描述,地址 -->
+    <name>${project.artifactId}</name>
+    <description>项目简单描述</description>
+    <!-- 引入jar包版本控制 -->
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <lombok.version>1.18.22</lombok.version>
+        <knife4j.version>3.0.2</knife4j.version>
+        <spring-cloud-alibaba.version>2.2.7.RELEASE</spring-cloud-alibaba.version>
+        <fastjson.version>1.2.83</fastjson.version>
+        <redis.version>2.2.5</redis.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.3</mybatis-plus-generator.version>
+        <druid.version>1.1.22</druid.version>
+        <hutool.version>5.7.22</hutool.version>
+        <guava.version>20.0</guava.version>
+        <joda-time.version>2.10.5</joda-time.version>
+        <poi.version>4.1.2</poi.version>
+        <beanutils.version>1.9.3</beanutils.version>
+        <nanoid.version>2.0.0</nanoid.version>
+        <velocity-engine.version>2.0</velocity-engine.version>
+        <redisson.version>2.11.5</redisson.version>
+        <elasticsearch.version>7.12.1</elasticsearch.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringCloudAlibaba版本全局控制 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- knife4j 版本控制 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- mybatis plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!--hutool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!--日期格式化工具-->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
+            <!-- beanutils -->
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${beanutils.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.aventrix.jnanoid</groupId>
+                <artifactId>jnanoid</artifactId>
+                <version>${nanoid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 描述打包方式 必须加在父工程而不是commons,否则其他工程引用不到-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
