@@ -9,10 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @author Liushengping
- * @since 2021/9/15
- */
 @Slf4j
 public class BeanCopierUtil {
 
