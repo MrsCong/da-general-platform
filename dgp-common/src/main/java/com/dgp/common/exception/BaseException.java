@@ -1,8 +1,8 @@
-package com.dgp.core.exception;
+package com.dgp.common.exception;
 
 
-import com.dgp.core.http.code.BaseStatusCode;
-import com.dgp.core.http.code.StatusCode;
+import com.dgp.common.code.BaseStatusCode;
+import com.dgp.common.code.StatusCode;
 
 public class BaseException extends RuntimeException {
 

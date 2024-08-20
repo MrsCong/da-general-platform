@@ -1,6 +1,7 @@
-package com.dgp.core.http.code;
+package com.dgp.common.code;
 
-import com.dgp.core.exception.BaseException;
+
+import com.dgp.common.exception.BaseException;
 
 /**
  * 异常状态码和信息

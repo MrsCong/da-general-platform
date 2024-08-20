@@ -1,4 +1,4 @@
-package com.dgp.core.http.code;
+package com.dgp.common.code;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

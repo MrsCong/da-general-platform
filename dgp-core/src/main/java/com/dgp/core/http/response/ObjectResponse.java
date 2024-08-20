@@ -1,8 +1,8 @@
 package com.dgp.core.http.response;
 
 import cn.hutool.json.JSONObject;
-import com.dgp.core.http.code.BaseStatusCode;
-import com.dgp.core.http.code.StatusCode;
+import com.dgp.common.code.BaseStatusCode;
+import com.dgp.common.code.StatusCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
