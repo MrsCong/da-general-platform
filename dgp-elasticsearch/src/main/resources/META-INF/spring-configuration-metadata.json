@@ -1,0 +1,84 @@
+{
+	"hints": 
+	[
+		
+	],
+
+	"groups": 
+	[
+		{
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es",
+			"type": "com.guokang.ms.elasticsearch.config.EsConfigProperties"
+		}
+	],
+
+	"properties": 
+	[
+	    {
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es.url",
+			"type": "java.lang.String"
+		},
+        {
+          "sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+          "name": "es.packages",
+          "type": "java.lang.String"
+        },
+        {
+          "sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+          "name": "es.dslPath",
+          "type": "java.lang.String"
+        },
+		  {
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es.user",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es.passWord",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "ea.maxTotal",
+			"type": "java.lang.Integer"
+		},
+		{
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es.maxRoute",
+			"type": "java.lang.Integer"
+		},
+		{
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es.socketTimeout",
+			"type": "java.lang.Integer"
+		},
+		{
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es.connectTimeout",
+			"type": "java.lang.Integer"
+		},
+		{
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es.connectionRequestTimeout",
+			"type": "java.lang.Integer"
+		},
+			{
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es.certFilePath",
+			"type": "java.lang.String"
+		},
+			{
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es.certPassword",
+			"type": "java.lang.String"
+		},
+			{
+			"sourceType": "com.guokang.ms.elasticsearch.config.EsConfigProperties",
+			"name": "es.certType",
+			"type": "java.lang.String"
+		}
+	]
+}
