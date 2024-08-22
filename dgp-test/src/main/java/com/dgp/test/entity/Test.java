@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -18,6 +20,6 @@ public class Test extends Model<Test> {
 
     private String name;
 
-    private String remark;
+    private List<String> remark;
 
 }

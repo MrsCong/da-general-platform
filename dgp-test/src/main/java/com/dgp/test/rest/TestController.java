@@ -1,6 +1,5 @@
 package com.dgp.test.rest;
 
-import com.dgp.core.http.response.BaseResponse;
 import com.dgp.core.http.response.ObjectResponse;
 import com.dgp.core.web.rest.BaseController;
 import com.dgp.test.application.TestAppService;
