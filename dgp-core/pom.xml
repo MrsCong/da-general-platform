@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.dgp</groupId>
     <artifactId>dgp-core</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${dgp.component.version}</version>
     <name>dgp-core</name>
     <description>dgp-core</description>
 

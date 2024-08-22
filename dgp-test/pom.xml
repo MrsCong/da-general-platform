@@ -67,7 +67,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>2.6.3</version>
                 <configuration>
                     <mainClass>com.dgp.test.DgpTestApplication</mainClass>
                     <skip>true</skip>
