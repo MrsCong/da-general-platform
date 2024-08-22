@@ -6,6 +6,7 @@
     <modules>
         <module>dgp-core</module>
         <module>dgp-common</module>
+        <module>dgp-mybatis</module>
     </modules>
     <!-- 全局Springboot版本 (包括test,web,starter) -->
     <parent>
