@@ -8,6 +8,7 @@
         <module>dgp-common</module>
         <module>dgp-mybatis</module>
         <module>dgp-elasticsearch</module>
+        <module>dgp-web</module>
     </modules>
     <!-- 全局Springboot版本 (包括test,web,starter) -->
     <parent>
