@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.io.Serializable;
 
 @Data
 @Builder
@@ -20,6 +20,6 @@ public class Test extends Model<Test> {
 
     private String name;
 
-    private List<String> remark;
+    private Integer age;
 
 }

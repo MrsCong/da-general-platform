@@ -21,3 +21,8 @@ spring:
 
 mybatis-plus:
   type-handlers-package: com.dgp.mybatis.typehandler.JsonObjToStringTypeHandler;com.dgp.test.typehandler.ListStringToStringTypeHandler
+
+es:
+  url: http://127.0.0.1:9200
+  packages: com.dgp.test.esmapper
+  dslPath: classpath:esmapper/*.dsl.xml
