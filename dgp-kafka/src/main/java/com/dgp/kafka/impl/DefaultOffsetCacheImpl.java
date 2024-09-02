@@ -8,13 +8,13 @@ import java.util.Map;
 
 public class DefaultOffsetCacheImpl implements Cache {
 
-    public static final Map<String, Map<String, String>> offsetMap = new HashMap<String, Map<String, String>>();
+    public static final Map<String, Map<String, String>> offsetMap = new HashMap<>();
 
     @Override
     public void put(String key, String field, String offset) {
         Map<String, String> valMap = offsetMap.get(key);
         if (valMap == null) {
-            valMap = new HashMap<String, String>();
+            valMap = new HashMap<>();
         }
         valMap.put(field, offset);
         offsetMap.put(key, valMap);

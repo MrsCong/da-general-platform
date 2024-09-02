@@ -57,7 +57,7 @@ public class ConsumerRunnable implements Runnable {
                                 strategy.messageHandler(receiveBefore(record.value(), tokenUtil));
                             }
                         } catch (Exception e) {
-                            log.error("===消息消费异常===queue:{},groupId:{},pation:{},offset:{},key:{},消息参数:{}", queue, groupId, record.partition(), record.offset(), record.key(), record.value(), e);
+                            log.error("===消息消费异常===queue:{},groupId:{},partition:{},offset:{},key:{},消息参数:{}", queue, groupId, record.partition(), record.offset(), record.key(), record.value(), e);
 
                         }
                         kafkaOffsetManager.saveOffsetInExternalStore(groupId, queue, record.partition(), record.offset());

@@ -29,7 +29,7 @@ public class ConsumerRunner implements CommandLineRunner {
     private ApplicationContext applicationContext;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         try {
             String groupId = kafkaProvider.getKafkaProperties().getConsumer().getGroupId();
             int count = kafkaProvider.getKafkaProperties().getConsumer().getCount();
@@ -37,7 +37,7 @@ public class ConsumerRunner implements CommandLineRunner {
             if (CollectionUtils.isEmpty(topicList)) {
                 return;
             }
-            List<String> envTopicList = new ArrayList<String>();
+            List<String> envTopicList = new ArrayList<>();
             for (String topic : topicList) {
                 envTopicList.add(EnvUtil.getEnvKafka(topic));
             }

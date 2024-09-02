@@ -51,14 +51,13 @@ public class KafkaProvider implements KafkaApi {
             @Override
             public void onPartitionsAssigned(Collection<TopicPartition> partitions) {
 
-                logger.info("---readOffsetFromExternalStore: groupId:{}，isRebalance：{}", groupId, kafkaProperties.isRebalanced());
+                logger.info("---readOffsetFromExternalStore: groupId:{}，isRebalanced：{}", groupId, kafkaProperties.isRebalanced());
                 if (kafkaProperties.isRebalanced()) {
                     for (TopicPartition partition : partitions) {
                         long offset = offsetManager.readOffsetFromExternalStore(groupId, partition.topic(), partition.partition());
                         if (offset >= 0) {
                             consumer.seek(partition, offset);
-                            logger.info("---readOffsetFromExternalStore: groupId:{},topic:{},partition:{},offset:{}--{}", groupId, partition.topic(), partition.partition(),
-                                    consumer.position(partition), offset);
+                            logger.info("---readOffsetFromExternalStore: groupId:{},topic:{},partition:{},offset:{}--{}", groupId, partition.topic(), partition.partition(), consumer.position(partition), offset);
                         }
 
                     }

@@ -64,7 +64,7 @@ public class KafkaSender {
         if (StringUtils.isNotEmpty(kafkaProperties.getProducer().getMaxBlockTimeMs())) {
             producerConfig.put(ProducerConfig.MAX_BLOCK_MS_CONFIG, kafkaProperties.getProducer().getMaxBlockTimeMs());
         }
-        producer = new KafkaProducer<String, String>(producerConfig);
+        producer = new KafkaProducer<>(producerConfig);
     }
 
     public void close() {
@@ -92,9 +92,9 @@ public class KafkaSender {
         }
         ProducerRecord<String, String> record = null;
         if (StringUtils.isNotEmpty(key)) {
-            record = new ProducerRecord<String, String>(topic.trim(), key, content);
+            record = new ProducerRecord<>(topic.trim(), key, content);
         } else {
-            record = new ProducerRecord<String, String>(topic.trim(), content);
+            record = new ProducerRecord<>(topic.trim(), content);
         }
         RecordMetadata re;
         try {
@@ -122,9 +122,9 @@ public class KafkaSender {
         }
         ProducerRecord<String, String> record = null;
         if (StringUtils.isNotEmpty(key)) {
-            record = new ProducerRecord<String, String>(topic.trim(), key, content);
+            record = new ProducerRecord<>(topic.trim(), key, content);
         } else {
-            record = new ProducerRecord<String, String>(topic.trim(), content);
+            record = new ProducerRecord<>(topic.trim(), content);
         }
         try {
             producer.send(record, new Callback() {

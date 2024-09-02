@@ -19,15 +19,15 @@ public class KafkaOffsetManager {
     /**
      * Overwrite the offset for the topic in an external storage.
      *
-     * @param topic      - Topic name.
-     * @param partionNum - Partition of the topic.
-     * @param offset     - offset to be stored.
+     * @param topic        - Topic name.
+     * @param partitionNum - Partition of the topic.
+     * @param offset       - offset to be stored.
      */
-    public void saveOffsetInExternalStore(final String groupId, final String topic, final int partionNum,
+    public void saveOffsetInExternalStore(final String groupId, final String topic, final int partitionNum,
                                           final long offset) {
 
         try {
-            String hashKey = storageKey(groupId, topic, partionNum);
+            String hashKey = storageKey(groupId, topic, partitionNum);
             logger.info("---saveOffsetInExternalStore key:{} hashKey:{},value:{}", getKey(), hashKey, offset);
             offsetCache.put(getKey(), hashKey, String.valueOf(offset));
         } catch (Exception e) {
