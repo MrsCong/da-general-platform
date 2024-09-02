@@ -1,0 +1,207 @@
+{
+	"hints": [],
+	"groups": [
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties",
+			"name": "kafka",
+			"type": "com.dgp.kafka.config.KafkaProperties"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties",
+			"name": "kafka.consumer",
+			"type": "com.dgp.kafka.config.KafkaProperties.Consumer"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties",
+			"name": "kafka.producer",
+			"type": "com.dgp.kafka.config.KafkaProperties.Producer"
+		}
+	],
+	"properties": [
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties",
+			"name": "kafka.enable",
+			"type": "java.lang.Boolean"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties",
+			"name": "kafka.rebalance",
+			"type": "java.lang.Boolean"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties",
+			"name": "kafka.consumer",
+			"type": "com.dgp.kafka.config.KafkaProperties.Consumer"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties",
+			"name": "kafka.producer",
+			"type": "com.dgp.kafka.config.KafkaProperties.Producer"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.fetchMinSize",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.offsetCahcePrefix",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.fetchMaxSize",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.fetchMaxWait",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.maxPartitionFetchSize",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.autoCommitInterval",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.autoOffsetReset",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.maxPollRecords",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.maxPollInterval",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.sessionTimeout",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.heartbeatInterval",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.keyDeserializer",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.valueDeserializer",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.groupId",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.enableAutoCommit",
+			"type": "java.lang.Boolean"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.pollTimeOut",
+			"type": "java.lang.Long"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.count",
+			"type": "java.lang.Integer"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.dataQueueSize",
+			"type": "java.lang.Integer"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.receive",
+			"type": "java.util.HashMap"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Consumer",
+			"name": "kafka.consumer.topicProcess",
+			"type": "java.util.HashMap"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.batchSize",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.bufferMemory",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.retries",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.linger",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.requestTimeoutMs",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.maxBlockTimeMs",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.acks",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.keySerializer",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.valueSerializer",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.partitionerClass",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.bootstrapServers",
+			"type": "java.lang.String"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.count",
+			"type": "java.lang.Integer"
+		},
+		{
+			"sourceType": "com.dgp.kafka.config.KafkaProperties.Producer",
+			"name": "kafka.producer.send",
+			"type": "java.lang.Integer"
+		}
+	]
+}
