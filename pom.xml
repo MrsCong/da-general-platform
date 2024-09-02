@@ -9,6 +9,7 @@
         <module>dgp-mybatis</module>
         <module>dgp-elasticsearch</module>
         <module>dgp-web</module>
+        <module>dgp-kafka</module>
     </modules>
     <!-- 全局Springboot版本 (包括test,web,starter) -->
     <parent>
