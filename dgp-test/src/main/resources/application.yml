@@ -26,3 +26,13 @@ es:
   url: http://127.0.0.1:9200
   packages: com.dgp.test.esmapper
   dslPath: classpath:esmapper/*.dsl.xml
+
+kafka:
+  enable: true
+  consumer:
+    bootstrapServers: localhost:9092
+    groupId: dpg-test-group
+    topicList:
+      - 'KAFKA_TEST_TOPIC'
+  producer:
+    bootstrapServers: localhost:9092

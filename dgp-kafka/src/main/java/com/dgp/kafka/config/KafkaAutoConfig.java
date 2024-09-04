@@ -1,6 +1,10 @@
 package com.dgp.kafka.config;
 
 import com.dgp.common.cache.Cache;
+import com.dgp.common.context.BaseTokenUtil;
+import com.dgp.common.context.ClientInfo;
+import com.dgp.common.context.TokenInfo;
+import com.dgp.common.context.TokenUtil;
 import com.dgp.kafka.consumer.ConsumerContext;
 import com.dgp.kafka.consumer.ConsumerRunner;
 import com.dgp.kafka.core.KafkaOffsetManager;
@@ -34,6 +38,23 @@ public class KafkaAutoConfig {
     @Bean
     public KafkaSenderPool getKafkaSenderPool() {
         return new KafkaSenderPool(kafkaProperties);
+    }
+
+
+    @ConditionalOnMissingBean
+    @Bean
+    public TokenUtil getTokenUtil() {
+        return new BaseTokenUtil() {
+            @Override
+            public TokenInfo getUserTokenInfo(String token) {
+                return new TokenInfo();
+            }
+
+            @Override
+            public ClientInfo getClientInfo(String token) {
+                return new ClientInfo();
+            }
+        };
     }
 
 
