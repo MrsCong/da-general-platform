@@ -10,6 +10,7 @@
         <module>dgp-elasticsearch</module>
         <module>dgp-web</module>
         <module>dgp-kafka</module>
+        <module>dgp-redis</module>
     </modules>
     <!-- 全局Springboot版本 (包括test,web,starter) -->
     <parent>
