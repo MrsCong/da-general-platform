@@ -3,6 +3,7 @@ package com.dgp.test.rest;
 import com.dgp.core.http.response.ObjectResponse;
 import com.dgp.core.web.rest.BaseController;
 import com.dgp.kafka.core.KafkaSenderPool;
+import com.dgp.redis.util.RedisUtil;
 import com.dgp.test.application.TestAppService;
 import com.dgp.test.entity.Test;
 import io.swagger.annotations.Api;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/test")
@@ -44,6 +47,13 @@ public class TestController extends BaseController<TestAppService> {
     @ApiOperation(value = "kafka测试")
     public ObjectResponse kafkaTest(String message) {
         kafkaSenderPool.send("KAFKA_TEST_TOPIC", message);
+        return ObjectResponse.success();
+    }
+
+    @GetMapping("/redisTest")
+    @ApiOperation(value = "redis测试")
+    public ObjectResponse redisTest(String message) {
+        RedisUtil.expireSetStr("test", message, 10, TimeUnit.SECONDS);
         return ObjectResponse.success();
     }
 

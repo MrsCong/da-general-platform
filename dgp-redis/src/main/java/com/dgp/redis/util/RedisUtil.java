@@ -15,17 +15,23 @@ public class RedisUtil {
         REDISSON_CLIENT = SpringUtil.getBean(RedissonClient.class);
     }
 
-    public static void setRedisKey(String redisKey, String value, Integer expirationTime,
-                                   TimeUnit time) {
+    public static void setStr(String redisKey, String value) {
+        REDISSON_CLIENT.getBucket(EnvUtil.getEnvRedis(redisKey)).set(value);
+    }
+
+    public static void expireSetStr(String redisKey, String value, Integer expirationTime, TimeUnit time) {
         RBucket<String> bucket = REDISSON_CLIENT.getBucket(EnvUtil.getEnvRedis(redisKey));
         bucket.set(value, expirationTime, time);
     }
 
-    public static String getRedisKey(String redisKey) {
-        RBucket<String> bucket = REDISSON_CLIENT.getBucket(
-                EnvUtil.getEnvRedis(redisKey)
-        );
+    public static String getStr(String redisKey) {
+        RBucket<String> bucket = REDISSON_CLIENT.getBucket(EnvUtil.getEnvRedis(redisKey));
         return bucket.get();
+    }
+
+    public static String getStrAndDel(String redisKey) {
+        RBucket<String> bucket = REDISSON_CLIENT.getBucket(EnvUtil.getEnvRedis(redisKey));
+        return bucket.getAndDelete();
     }
 
 }

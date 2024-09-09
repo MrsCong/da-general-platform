@@ -36,3 +36,11 @@ kafka:
       - 'KAFKA_TEST_TOPIC'
   producer:
     bootstrapServers: localhost:9092
+
+redis:
+  url: redis://127.0.0.1:16379
+  password: redis
+  mode: single
+  database: 1
+  redisson:
+    enabled: true
