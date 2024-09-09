@@ -17,10 +17,6 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
 
-/**
- * @author 汪永晖
- * @date 2021/12/21 13:35
- */
 @SuppressWarnings("ALL")
 @Configuration
 @ConditionalOnProperty(prefix = "redis.redisson", name = "enabled", havingValue = "true")
