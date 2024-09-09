@@ -50,7 +50,7 @@
         <beanutils.version>1.9.3</beanutils.version>
         <nanoid.version>2.0.0</nanoid.version>
         <velocity-engine.version>2.0</velocity-engine.version>
-        <redisson.version>2.11.5</redisson.version>
+        <redisson.version>3.16.8</redisson.version>
         <elasticsearch.version>7.12.1</elasticsearch.version>
         <swagger-annotations.version>1.5.9</swagger-annotations.version>
         <collections4.version>4.4</collections4.version>
