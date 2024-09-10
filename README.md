@@ -6,3 +6,4 @@
     # dgp-mybatis: 提供mybatis服务
     # dgp-elasticsearch: 提供elasticsearch封装服务
     # dgp-kafka: 提供kafka封装服务
+    # dgp-redis: 提供redis封装服务
