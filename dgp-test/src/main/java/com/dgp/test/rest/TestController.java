@@ -2,6 +2,8 @@ package com.dgp.test.rest;
 
 import com.dgp.core.http.response.ObjectResponse;
 import com.dgp.core.web.rest.BaseController;
+import com.dgp.excel.annotation.ExportExcel;
+import com.dgp.excel.annotation.ImportExcel;
 import com.dgp.kafka.core.KafkaSenderPool;
 import com.dgp.redis.util.RedisUtil;
 import com.dgp.test.application.TestAppService;
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -56,5 +61,19 @@ public class TestController extends BaseController<TestAppService> {
         RedisUtil.expireSetStr("test", message, 10, TimeUnit.SECONDS);
         return ObjectResponse.success();
     }
+
+    @PostMapping("/importExcelTest")
+    @ApiOperation(value = "excel导入测试")
+    public ObjectResponse importExcelTest(@ImportExcel(ignoreEmptyRow = true) List<Test> tests) {
+        return ObjectResponse.success(tests);
+    }
+
+    @PostMapping("/exportExcelTest")
+    @ApiOperation(value = "excel导出测试")
+    @ExportExcel(name = "test")
+    public List<Test> exportExcelTest() {
+        return Arrays.asList(new Test(1L,"test",18));
+    }
+
 
 }
