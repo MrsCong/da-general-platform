@@ -8,10 +8,10 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <groupId>com.dgp</groupId>
-    <artifactId>dgp-web</artifactId>
+    <artifactId>dgp-excel</artifactId>
     <version>${dgp.component.version}</version>
-    <name>dgp-web</name>
-    <description>dgp-web</description>
+    <name>dgp-excel</name>
+    <description>dgp-excel</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,19 +20,25 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.dgp</groupId>
-            <artifactId>dgp-core</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <artifactId>dgp-web</artifactId>
+            <version>${dgp.component.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
     </dependencies>
@@ -48,6 +54,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
