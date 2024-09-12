@@ -44,3 +44,12 @@ redis:
   database: 1
   redisson:
     enabled: true
+
+xxl:
+  job:
+    sdk:
+      adminUrl: xxl-job-admin-url
+      userName: admin
+      password: 123456
+      appname: dgp-test
+      address: localServerAddress
