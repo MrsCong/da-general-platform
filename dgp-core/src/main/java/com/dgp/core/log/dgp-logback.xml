@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+  <property name="CONSOLE_LOG_PATTERN"
+    value="%d{COMPACT}|%-5p|%logger{64}[%line]|%t|${appName}|${env}|%m%n"/>
+  <property name="kafkaServer" value="127.0.0.1:9092"/>
+  <include
+    resource="org/springframework/boot/logging/logback/defaults.xml"/>
+  <appender name="CONSOLE"
+    class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+  <appender name="FILE"
+    class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${user.dir}/logs/${appName}.log</File>
+    <encoder>
+      <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+      <charset>utf8</charset>
+    </encoder>
+    <rollingPolicy
+      class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- 添加.gz 历史日志会启用压缩 大大缩小日志文件所占空间 -->
+      <fileNamePattern>${user.dir}/logs/${LOG_FILE}.%d{yyyy-MM-dd}.log.gz
+      </fileNamePattern>
+      <maxHistory>7</maxHistory><!-- 保留7天日志 -->
+    </rollingPolicy>
+    <triggeringPolicy
+      class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>2gb</maxFileSize>
+    </triggeringPolicy>
+  </appender>
+  <appender name="FILE_ERROR"
+    class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${user.dir}/logs/${appName}-error.log</File>
+    <encoder>
+      <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+      <charset>utf8</charset>
+    </encoder>
+    <rollingPolicy
+      class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- 添加.gz 历史日志会启用压缩 大大缩小日志文件所占空间 -->
+      <fileNamePattern>${user.dir}/logs/${LOG_FILE}.%d{yyyy-MM-dd}.log.gz
+      </fileNamePattern>
+      <maxHistory>7</maxHistory><!-- 保留7天日志 -->
+    </rollingPolicy>
+    <triggeringPolicy
+      class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>2gb</maxFileSize>
+    </triggeringPolicy>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>error</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+
+  <appender name="KAFKA_LOG"
+    class="com.github.danielwegener.logback.kafka.KafkaAppender">
+    <encoder charset="UTF-8"
+      class="net.logstash.logback.encoder.LogstashEncoder">
+      <!-- "appName":"gk-app-test" 的作用是指定创建索引的名字时用，并且在生成的文档中会多了这个字段 -->
+      <customFields>{"appName":"${appName}"}</customFields>
+      <customFields>{"env":"${env}"}</customFields>
+      <includeMdc>true</includeMdc>
+      <includeContext>true</includeContext>
+      <throwableConverter
+        class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+        <maxDepthPerThrowable>30</maxDepthPerThrowable>
+        <rootCauseFirst>true</rootCauseFirst>
+      </throwableConverter>
+    </encoder>
+    <topic>APP-LOG</topic>
+    <keyingStrategy
+      class="com.github.danielwegener.logback.kafka.keying.HostNameKeyingStrategy"/>
+    <deliveryStrategy
+      class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy"/>
+    <producerConfig>bootstrap.servers=${kafkaServer}</producerConfig>
+    <producerConfig>acks=0</producerConfig>
+    <producerConfig>linger.ms=100</producerConfig>
+    <producerConfig>max.block.ms=0</producerConfig>
+  </appender>
+
+  <springProfile name="local">
+    <root level="debug">
+      <appender-ref ref="CONSOLE"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="dev">
+    <root level="debug">
+      <appender-ref ref="FILE_ERROR"/>
+      <appender-ref ref="FILE"/>
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="KAFKA_LOG"/>
+    </root>
+  </springProfile>
+  <springProfile name="sit">
+    <root level="debug">
+      <appender-ref ref="FILE_ERROR"/>
+      <appender-ref ref="FILE"/>
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="KAFKA_LOG"/>
+    </root>
+  </springProfile>
+  <springProfile name="preview">
+		<root level="debug">
+			<appender-ref ref="FILE_ERROR" />
+			<appender-ref ref="FILE" />
+			<appender-ref ref="CONSOLE" />
+			<appender-ref ref="KAFKA_LOG" />
+		</root>
+	</springProfile>
+	<springProfile name="uat">
+		<root level="debug">
+			<appender-ref ref="FILE_ERROR" />
+			<appender-ref ref="FILE" />
+			<appender-ref ref="CONSOLE" />
+			<appender-ref ref="KAFKA_LOG" />
+		</root>
+	</springProfile>
+  <springProfile name="prod">
+    <root level="info">
+      <appender-ref ref="FILE_ERROR"/>
+      <appender-ref ref="FILE"/>
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="KAFKA_LOG"/>
+    </root>
+  </springProfile>
+
+</included>

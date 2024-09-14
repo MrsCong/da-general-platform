@@ -33,7 +33,7 @@ kafka:
     bootstrapServers: localhost:9092
     groupId: dpg-test-group
     topicList:
-      - 'KAFKA_TEST_TOPIC'
+      - 'APP_LOG'
   producer:
     bootstrapServers: localhost:9092
 
@@ -48,8 +48,8 @@ redis:
 xxl:
   job:
     sdk:
-      adminUrl: xxl-job-admin-url
+      adminUrl: https://xxljobdev.guokang.com
       userName: admin
       password: 123456
       appname: dgp-test
-      address: localServerAddress
+      address: http://10.10.6.192:7001

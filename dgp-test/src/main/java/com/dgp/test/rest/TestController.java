@@ -56,7 +56,7 @@ public class TestController extends BaseController<TestAppService> {
     @GetMapping("/kafkaTest")
     @ApiOperation(value = "kafka测试")
     public ObjectResponse kafkaTest(String message) {
-        kafkaSenderPool.send("KAFKA_TEST_TOPIC", message);
+        kafkaSenderPool.send("APP_LOG", message);
         return ObjectResponse.success();
     }
 
