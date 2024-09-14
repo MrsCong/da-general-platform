@@ -52,7 +52,9 @@ xxl:
       userName: admin
       password: 123456
       appname: dgp-test
-      address: http://10.10.6.192:7001
+      address: http://10.10.6.192:7001 #本服务地址
+      ip: 10.10.6.192 #本服务ip和address保持一致
+      port: 7001 #本服务端口和address保持一致
 
 feign:
   client:
