@@ -53,3 +53,15 @@ xxl:
       password: 123456
       appname: dgp-test
       address: http://10.10.6.192:7001
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: BASIC
+
+  httpclient:
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 50
+

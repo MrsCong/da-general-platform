@@ -5,11 +5,13 @@ import com.dgp.kafka.config.EnableKafka;
 import com.dgp.redis.autoconfig.EnableRedis;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableEs
 @EnableKafka
 @EnableRedis
 @SpringBootApplication
+@EnableFeignClients
 public class DgpTestApplication {
 
     public static void main(String[] args) {
