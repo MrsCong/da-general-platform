@@ -16,6 +16,7 @@ public class DgpTestApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DgpTestApplication.class, args);
+        System.out.println("---------加载完毕------------");
     }
 
 }

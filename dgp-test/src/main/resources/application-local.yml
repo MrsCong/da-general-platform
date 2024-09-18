@@ -1,0 +1,67 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://127.0.0.1:13306/test?useUnicode=true&characterEncoding=utf8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+
+logging:
+  level:
+    root: ${LOG_LEVEL:info}
+    org:
+      apache:
+        kafka: ${LOG_LEVEL:info}
+
+mybatis-plus:
+  type-handlers-package: com.dgp.mybatis.typehandler.JsonObjToStringTypeHandler;com.dgp.test.typehandler.ListStringToStringTypeHandler
+
+es:
+  url: http://127.0.0.1:9200
+  packages: com.dgp.test.esmapper
+  dslPath: classpath:esmapper/*.dsl.xml
+
+kafka:
+  enable: true
+  consumer:
+    bootstrapServers: 10.10.6.192:9092
+    groupId: dpg-test-group
+    topicList:
+      - 'TEST'
+  producer:
+    bootstrapServers: 10.10.6.192:9092
+
+redis:
+  url: redis://127.0.0.1:16379
+  password: redis
+  mode: single
+  database: 1
+  redisson:
+    enabled: true
+
+xxl:
+  job:
+    sdk:
+      adminUrl: https://xxljobdev.guokang.com
+      userName: admin
+      password: 123456
+      appname: dgp-test
+      address: http://10.10.6.192:7001 #本服务地址
+      ip: 10.10.6.192 #本服务ip和address保持一致
+      port: 7001 #本服务端口和address保持一致
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: BASIC
+
+  httpclient:
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 50
+
