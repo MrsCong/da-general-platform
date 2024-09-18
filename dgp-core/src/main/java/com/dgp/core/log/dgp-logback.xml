@@ -2,7 +2,7 @@
 <included>
   <property name="CONSOLE_LOG_PATTERN"
     value="%d{COMPACT}|%-5p|%logger{64}[%line]|%t|${appName}|${env}|%m%n"/>
-  <property name="kafkaServer" value="127.0.0.1:9092"/>
+  <property name="kafkaServer" value="${kafka.producer.bootstrapServers}"/>
   <include
     resource="org/springframework/boot/logging/logback/defaults.xml"/>
   <appender name="CONSOLE"

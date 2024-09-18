@@ -13,6 +13,7 @@ import com.dgp.test.application.TestAppService;
 import com.dgp.test.entity.Test;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/test")
 @Api(tags = "测试模块")
+@Slf4j
 public class TestController extends BaseController<TestAppService> {
 
     @Autowired
@@ -56,7 +58,7 @@ public class TestController extends BaseController<TestAppService> {
     @GetMapping("/kafkaTest")
     @ApiOperation(value = "kafka测试")
     public ObjectResponse kafkaTest(String message) {
-        kafkaSenderPool.send("APP_LOG", message);
+        kafkaSenderPool.send("APP-LOG", message);
         return ObjectResponse.success();
     }
 
@@ -93,6 +95,13 @@ public class TestController extends BaseController<TestAppService> {
         Integer jobId = xxlJobService.add(request);
         xxlJobService.start(jobId);
 //        xxlJobService.stop(414);
+        return ObjectResponse.success();
+    }
+
+    @GetMapping("/logStashTest")
+    @ApiOperation(value = "logStash测试")
+    public ObjectResponse logStashTest(String message) {
+        log.info(message);
         return ObjectResponse.success();
     }
 

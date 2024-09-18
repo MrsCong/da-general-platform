@@ -30,12 +30,12 @@ es:
 kafka:
   enable: true
   consumer:
-    bootstrapServers: localhost:9092
+    bootstrapServers: 10.10.6.192:9092
     groupId: dpg-test-group
     topicList:
-      - 'APP_LOG'
+      - 'APP-LOG'
   producer:
-    bootstrapServers: localhost:9092
+    bootstrapServers: 10.10.6.192:9092
 
 redis:
   url: redis://127.0.0.1:16379

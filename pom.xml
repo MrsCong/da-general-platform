@@ -61,6 +61,7 @@
         <commons-lang3.version>3.16.0</commons-lang3.version>
         <easyexcel.version>3.1.1</easyexcel.version>
         <xxl-job.version>2.3.1</xxl-job.version>
+        <logstash.version>0.2.0-RC2</logstash.version>
     </properties>
 
     <dependencyManagement>
@@ -202,9 +203,9 @@
             </dependency>
 
             <dependency>
-                <groupId>net.logstash.logback</groupId>
-                <artifactId>logstash-logback-encoder</artifactId>
-                <version>6.6</version>
+                <groupId>com.github.danielwegener</groupId>
+                <artifactId>logback-kafka-appender</artifactId>
+                <version>${logstash.version}</version>
             </dependency>
 
         </dependencies>
