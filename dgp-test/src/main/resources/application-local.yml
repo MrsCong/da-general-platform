@@ -67,7 +67,7 @@ feign:
 
 obs:
   obsCode: QINIU
-  obsName: 七牛
+  obsName: 七牛云
   accessKey: f8XpkuwOjV_G8D5tHZdLaIXADb3o4oYQrHslEdSs
   secretKey: 3WUmlAItRHe67KvqObjL4VhfbUYMvLAqfzTHZVSw
   endpoint: http://skgnby0n6.hn-bkt.clouddn.com/
@@ -76,5 +76,16 @@ obs:
       configDir: dgp-public
       configPath: dgp-file/
       configUrl: http://skgnby0n6.hn-bkt.clouddn.com/
+
+#obs:
+#  obsCode: HUAWEI
+#  obsName: 华为云
+#  accessKey: ak
+#  secretKey: sk
+#  endpoint: obs.cn-south-1.myhuaweicloud.com
+#  configs:
+#    - configCode: guokang
+#      configDir: guokang
+#      configPath: guokang/
 
 

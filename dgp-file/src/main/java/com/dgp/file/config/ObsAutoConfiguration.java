@@ -1,5 +1,6 @@
 package com.dgp.file.config;
 
+import com.dgp.file.service.HuaWeiStorageServiceImpl;
 import com.dgp.file.service.IStorageService;
 import com.dgp.file.service.QiNiuStorageServiceImpl;
 import org.apache.commons.lang3.StringUtils;
@@ -15,6 +16,9 @@ public class ObsAutoConfiguration {
     public IStorageService getStorageService(ObsConfigProperties properties) {
         if (StringUtils.equals(properties.getObsCode(), "QINIU")) {
             return new QiNiuStorageServiceImpl();
+        }
+        if (StringUtils.equals(properties.getObsCode(), "HUAWEI")) {
+            return new HuaWeiStorageServiceImpl();
         }
         return null;
     }

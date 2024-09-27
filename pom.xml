@@ -64,6 +64,7 @@
         <xxl-job.version>2.3.1</xxl-job.version>
         <logstash.version>0.2.0-RC2</logstash.version>
         <qiniu-java-sdk.version>7.11.0</qiniu-java-sdk.version>
+        <obs-java-sdk.version>3.20.6.2</obs-java-sdk.version>
     </properties>
 
     <dependencyManagement>
@@ -210,10 +211,17 @@
                 <version>${logstash.version}</version>
             </dependency>
 
+            <!-- 七牛云sdk -->
             <dependency>
                 <groupId>com.qiniu</groupId>
                 <artifactId>qiniu-java-sdk</artifactId>
                 <version>${qiniu-java-sdk.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.huaweicloud</groupId>
+                <artifactId>esdk-obs-java</artifactId>
+                <version>${obs-java-sdk.version}</version>
             </dependency>
 
         </dependencies>
