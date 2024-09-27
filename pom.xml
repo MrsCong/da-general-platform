@@ -14,6 +14,7 @@
         <module>dgp-excel</module>
         <module>dgp-job</module>
         <module>dgp-feign</module>
+        <module>dgp-file</module>
     </modules>
     <!-- 全局Springboot版本 (包括test,web,starter) -->
     <parent>
@@ -62,6 +63,7 @@
         <easyexcel.version>3.1.1</easyexcel.version>
         <xxl-job.version>2.3.1</xxl-job.version>
         <logstash.version>0.2.0-RC2</logstash.version>
+        <qiniu-java-sdk.version>7.11.0</qiniu-java-sdk.version>
     </properties>
 
     <dependencyManagement>
@@ -206,6 +208,12 @@
                 <groupId>com.github.danielwegener</groupId>
                 <artifactId>logback-kafka-appender</artifactId>
                 <version>${logstash.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.qiniu</groupId>
+                <artifactId>qiniu-java-sdk</artifactId>
+                <version>${qiniu-java-sdk.version}</version>
             </dependency>
 
         </dependencies>

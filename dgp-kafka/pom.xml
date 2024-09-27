@@ -43,4 +43,16 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip><!--排除 spring-boot-maven-plugin-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

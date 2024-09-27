@@ -4,6 +4,9 @@ import com.dgp.core.http.response.ObjectResponse;
 import com.dgp.core.web.rest.BaseController;
 import com.dgp.excel.annotation.ExportExcel;
 import com.dgp.excel.annotation.ImportExcel;
+import com.dgp.file.dto.FileInfo;
+import com.dgp.file.service.IStorageService;
+import com.dgp.file.utils.ObsUtil;
 import com.dgp.job.enums.ScheduleTypeEnum;
 import com.dgp.job.http.request.XxlJobInfoAddRequest;
 import com.dgp.job.service.XxlJobService;
@@ -19,8 +22,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -36,6 +42,9 @@ public class TestController extends BaseController<TestAppService> {
 
     @Autowired
     private XxlJobService xxlJobService;
+
+    @Autowired
+    private IStorageService iStorageService;
 
     @PostMapping("/add")
     @ApiOperation(value = "新增")
@@ -103,6 +112,19 @@ public class TestController extends BaseController<TestAppService> {
     public ObjectResponse logStashTest(String message) {
         log.info(message);
         return ObjectResponse.success();
+    }
+
+    @PostMapping("/fileUpload")
+    @ApiOperation(value = "文件上传")
+    public ObjectResponse fileUpload(@RequestParam("file") MultipartFile file) {
+        FileInfo fileInfo = iStorageService.uploadFile(file, ObsUtil.getObsConfig("guokang-public"));
+        return ObjectResponse.success(fileInfo);
+    }
+
+    @PostMapping("/fileDownload")
+    @ApiOperation(value = "文件下载")
+    public void fileDownload(@RequestBody FileInfo fileInfo, HttpServletResponse response) {
+        iStorageService.downloadFile(response, ObsUtil.getObsConfig("guokang-public"), fileInfo);
     }
 
 

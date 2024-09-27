@@ -65,3 +65,16 @@ feign:
     max-connections: 200
     max-connections-per-route: 50
 
+obs:
+  obsCode: QINIU
+  obsName: 七牛
+  accessKey: ak
+  secretKey: sk
+  endpoint: https://file-qiniu.guokang.com/
+  configs:
+    - configCode: guokang-public
+      configDir: guokang-public
+      configPath: guokang-public/
+      configUrl: https://cdnfile.guokang.com/
+
+
