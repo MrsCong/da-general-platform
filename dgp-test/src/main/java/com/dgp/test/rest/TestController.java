@@ -117,14 +117,14 @@ public class TestController extends BaseController<TestAppService> {
     @PostMapping("/fileUpload")
     @ApiOperation(value = "文件上传")
     public ObjectResponse fileUpload(@RequestParam("file") MultipartFile file) {
-        FileInfo fileInfo = iStorageService.uploadFile(file, ObsUtil.getObsConfig("guokang-public"));
+        FileInfo fileInfo = iStorageService.uploadFile(file, ObsUtil.getObsConfig("dgp-public"));
         return ObjectResponse.success(fileInfo);
     }
 
     @PostMapping("/fileDownload")
     @ApiOperation(value = "文件下载")
     public void fileDownload(@RequestBody FileInfo fileInfo, HttpServletResponse response) {
-        iStorageService.downloadFile(response, ObsUtil.getObsConfig("guokang-public"), fileInfo);
+        iStorageService.downloadFile(response, ObsUtil.getObsConfig("dgp-public"), fileInfo);
     }
 
 

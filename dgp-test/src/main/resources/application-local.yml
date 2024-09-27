@@ -68,13 +68,13 @@ feign:
 obs:
   obsCode: QINIU
   obsName: 七牛
-  accessKey: ak
-  secretKey: sk
-  endpoint: https://file-qiniu.guokang.com/
+  accessKey: f8XpkuwOjV_G8D5tHZdLaIXADb3o4oYQrHslEdSs
+  secretKey: 3WUmlAItRHe67KvqObjL4VhfbUYMvLAqfzTHZVSw
+  endpoint: http://skgnby0n6.hn-bkt.clouddn.com/
   configs:
-    - configCode: guokang-public
-      configDir: guokang-public
-      configPath: guokang-public/
-      configUrl: https://cdnfile.guokang.com/
+    - configCode: dgp-public
+      configDir: dgp-public
+      configPath: dgp-file/
+      configUrl: http://skgnby0n6.hn-bkt.clouddn.com/
 
 
