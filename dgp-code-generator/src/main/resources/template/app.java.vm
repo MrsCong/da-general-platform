@@ -1,0 +1,85 @@
+package ${package}.application;
+
+import ${package}.dto.${secondModuleName}.${className}QueryDTO;
+import ${package}.dto.${secondModuleName}.${className}AddDTO;
+import ${package}.dto.${secondModuleName}.${className}UpdateDTO;
+import ${package}.entity.${className};
+import ${package}.service.${className}Service;
+import ${package}.vo.${className}VO;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.guokang.ms.core.http.response.PageResponse;
+import com.guokang.ms.core.utils.BeanCopierUtil;
+import com.guokang.ms.core.web.application.BaseAppService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+
+/**
+ * @author ${author}
+ * @version ${datetime}
+ */
+@Service
+public class ${className}AppService extends BaseAppService<${className}Service,${className}> {
+
+
+    /**
+     * 分页查询${comments}表信息列表-条件
+     *
+     * @param dto 条件
+     * @return PageResponse<${className}VO>
+     */
+    public PageResponse<${className}VO> list${className}PageByQuery(${className}QueryDTO dto) {
+        IPage<${className}> page = new Page<>(dto.getCurrent(), dto.getPageSize());
+        bizService.list${className}PageByQuery(page, dto);
+        List<${className}VO> listVOS = BeanCopierUtil.copyPropertiesOfList(
+                page.getRecords(), ${className}VO.class);
+        return new PageResponse<>(page.getTotal(), page.getCurrent(), page.getSize(),
+                listVOS);
+    }
+
+    /**
+     * 查询${comments}详情
+     *
+     * @param id  ${comments}id
+     * @return ${className}VO
+     */
+    public ${className}VO get${className}ById(Long id) {
+        ${className} object = bizService.get${className}ById(id);
+        if (object == null) {
+            return null;
+        }
+        return BeanCopierUtil.copyProperties(object, ${className}VO.class);
+    }
+
+    /**
+     * 新增${comments}
+     *
+     * @param dto ${comments}对象
+     * @return Integer
+     */
+    public Integer add${className}(${className}AddDTO dto) {
+        return bizService.add${className}(dto);
+    }
+
+    /**
+     * 修改${comments}
+     *
+     * @param dto ${comments}对象
+     * @return Integer
+     */
+    public Integer update${className}(${className}UpdateDTO dto) {
+        return bizService.update${className}(dto);
+    }
+
+    /**
+     * 删除${comments}
+     *
+     * @param id ${comments}id
+     * @return Integer
+     */
+    public Integer delete${className}(Long id) {
+        return bizService.delete${className}(id);
+    }
+}

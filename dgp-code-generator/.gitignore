@@ -1,0 +1,14 @@
+*/.DS_Store
+*/target
+*.iml
+/.idea
+*.class
+*/*.properties
+target/
+.project
+.settings/
+.classpath
+.DS_Store
+logs
+*/*.lnk
+

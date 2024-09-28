@@ -1,0 +1,53 @@
+package ${package}.entity;
+
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.math.BigDecimal;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @version ${datetime}
+ */
+@TableName("${tableName}")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ${className} implements Serializable{
+
+    private static final long serialVersionUID=1L;
+#foreach ($column in $columns)
+    #if($column.columnName == $pk.columnName)
+
+    @TableId(value = "id")
+    @ApiModelProperty(value = "$column.comments")
+    private $column.attrType id;
+    #else
+
+    @ApiModelProperty(value = "$column.comments")
+    private $column.attrType $column.attrname;
+    #end
+#end
+
+    //业务属性
+    @ApiModelProperty(value = "排序方式")
+    @TableField(exist = false)
+    private Integer orderBy;
+
+    @ApiModelProperty(value = "关键匹配")
+    @TableField(exist = false)
+    private String keyWord;
+
+        }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="${package}.mapper.${className}Mapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="${package}.entity.${className}" id="${classname}Map">
+        #foreach($column in $columns)
+            #if($column.columnName == $pk.columnName)
+                <result property="id" column="id"/>
+            #else
+                <result property="${column.attrname}" column="${column.columnName}"/>
+            #end
+        #end
+    </resultMap>
+
+    <sql id="BASE_COLUMN">
+            #foreach($column in $columns)
+                ${tableNameSimplify}.${column.columnName}#if($foreach.hasNext),
+        #end
+     #end
+
+    </sql>
+
+
+    <sql id="queryCondition">
+        <where>
+            ${tableNameSimplify}.is_delete = 0
+            #foreach($column in $columns)
+                #if($column.columnName == $pk.columnName)
+                    <if test="query.id != null">
+                        AND ${tableNameSimplify}.id = #{id}
+                    </if>
+                #else
+                    <if test="query.${column.attrname}!= null and query.${column.attrname}!=''">
+                        AND ${tableNameSimplify}.${column.columnName} = #{query.${column.attrname}}
+                    </if>
+                #end
+            #end
+        </where>
+        order by ${tableNameSimplify}.id
+    </sql>
+
+    <select id="list${className}PageByQuery" resultMap="${classname}Map"
+            parameterType="${package}.entity.${className}">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM ${tableName} ${tableNameSimplify}
+        <include refid="queryCondition"/>
+    </select>
+
+    <select id="list${className}ByQuery" resultMap="${classname}Map"
+            parameterType="${package}.entity.${className}">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM ${tableName} ${tableNameSimplify}
+        <include refid="queryCondition"/>
+    </select>
+
+</mapper>

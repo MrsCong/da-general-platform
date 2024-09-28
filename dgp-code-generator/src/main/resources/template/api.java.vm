@@ -1,0 +1,50 @@
+package ${package}.api;
+
+import com.guokang.ms.core.http.response.ObjectResponse;
+
+import ${package}.dto.${secondModuleName}.${className}QueryDTO;
+
+import ${package}.dto.${secondModuleName}.${className}QueryDTO;
+import ${package}.application.${className}AppService;
+import ${package}.vo.${className}VO;
+import com.guokang.ms.core.http.response.ObjectResponse;
+import com.guokang.ms.core.http.response.PageResponse;
+import com.guokang.ms.core.web.rest.BaseController;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.NonNull;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @author ${author}
+ * @version ${datetime}
+ */
+public class ${className}Interface {
+
+    /**
+     * 查询${comments}信息-条件
+     *
+     * @param ${className}DTO 查询列表条件
+     */
+    ObjectResponse get${className}ListByQuery(${className}QueryDTO ${className}aQueryDTO);
+
+    /**
+     * 查询${comments}详情
+     *
+     * @param ${className}Id ${comments}id
+     */
+    ObjectResponse get${className}Detail(String ${className}Id);
+
+    /**
+     * 新增/保存${comments}
+     */
+    ObjectResponse saveOrUpdate${className}(${className}QueryDTO ${className}aQueryDTO);
+
+    /**
+     * 删除${comments}
+     *
+     * @param ${className}aId
+     */
+    ObjectResponse delete${className}(String ${className}aId);
+}

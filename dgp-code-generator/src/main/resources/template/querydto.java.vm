@@ -1,0 +1,33 @@
+package ${package}.dto.${secondModuleName};
+
+import com.guokang.ms.core.http.request.BaseRequest;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.math.BigDecimal;
+
+/**
+ * @author ${author}
+ * @version ${datetime}
+ */
+@Data
+@ApiModel("${comments}")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ${className}QueryDTO extends BaseRequest implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    #foreach ($column in $columns)
+
+        @ApiModelProperty(value = "$column.comments")
+        private $column.attrType $column.attrname;
+    #end
+
+}

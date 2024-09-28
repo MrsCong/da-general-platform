@@ -1,0 +1,31 @@
+package ${package}.mapper;
+
+import java.util.List;
+
+import ${package}.entity.${className};
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.guokang.ms.mybatis.mapper.CommonMapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+
+/**
+ * @author ${author}
+ * @version ${datetime}
+ */
+@Mapper
+@Repository
+public interface ${className}Mapper extends CommonMapper<${className}> {
+
+    /**
+     * 查询分页${comments}列表-条件
+     */
+    IPage<${className}> list${className}PageByQuery(IPage<${className}> page,
+                                                    @Param("query") ${className} dto);
+
+    /**
+     * 查询${comments}列表-条件
+     */
+    List<${className}> list${className}ByQuery(@Param("query") ${className} dto);
+}

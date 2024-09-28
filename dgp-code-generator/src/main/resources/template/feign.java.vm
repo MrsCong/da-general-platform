@@ -1,0 +1,12 @@
+package ${package}.feign;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+/**
+ * @author ${author}
+ * @version ${datetime}
+ */
+@FeignClient(name = "${className}FeignService", url = "'${'gk.app.url.${appName}:${appName}'}'")
+public interface  ${className}FeignService {
+
+}
