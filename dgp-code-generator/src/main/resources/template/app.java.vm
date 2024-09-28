@@ -8,9 +8,9 @@ import ${package}.service.${className}Service;
 import ${package}.vo.${className}VO;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.guokang.ms.core.http.response.PageResponse;
-import com.guokang.ms.core.utils.BeanCopierUtil;
-import com.guokang.ms.core.web.application.BaseAppService;
+import com.dgp.core.http.response.PageResponse;
+import com.dgp.core.utils.BeanCopierUtil;
+import com.dgp.core.web.application.BaseAppService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

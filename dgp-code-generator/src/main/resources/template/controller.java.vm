@@ -1,16 +1,15 @@
 package ${package}.controller;
 
-import com.guokang.app.auth.annotation.CheckUserToken;
 
 import ${package}.dto.${secondModuleName}.${className}QueryDTO;
 import ${package}.dto.${secondModuleName}.${className}AddDTO;
 import ${package}.dto.${secondModuleName}.${className}UpdateDTO;
 import ${package}.application.${className}AppService;
 import ${package}.vo.${className}VO;
-import com.guokang.ms.core.http.request.IdRequest;
-import com.guokang.ms.core.http.response.ObjectResponse;
-import com.guokang.ms.core.http.response.PageResponse;
-import com.guokang.ms.core.web.rest.BaseController;
+import com.dgp.core.http.request.IdRequest;
+import com.dgp.core.http.response.ObjectResponse;
+import com.dgp.core.http.response.PageResponse;
+import com.dgp.core.web.rest.BaseController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.NonNull;
@@ -22,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/${secondModuleName}")
-@CheckUserToken
 @Api(value = "${className}Controller", tags = "${comments}控制器")
 public class ${className}Controller extends BaseController<${className}AppService> {
 

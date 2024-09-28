@@ -12,17 +12,23 @@
     <artifactId>gk-code-generator</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.guokang.microservice.platform</groupId>
-            <artifactId>gk-ms-web</artifactId>
+            <groupId>com.dgp</groupId>
+            <artifactId>dgp-web</artifactId>
             <version>${dgp.component.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.github.xiaoymin</groupId>
+                    <artifactId>knife4j-spring-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.guokang.microservice.platform</groupId>
-            <artifactId>gk-ms-mybatis</artifactId>
+            <groupId>com.dgp</groupId>
+            <artifactId>dgp-mybatis</artifactId>
             <version>${dgp.component.version}</version>
         </dependency>
         <dependency>

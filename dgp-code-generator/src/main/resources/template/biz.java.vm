@@ -6,8 +6,8 @@ import ${package}.dto.${secondModuleName}.${className}UpdateDTO;
 import ${package}.entity.${className};
 import ${package}.mapper.${className}Mapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.guokang.ms.core.utils.BeanCopierUtil;
-import com.guokang.ms.core.web.service.BaseBiz;
+import com.dgp.core.utils.BeanCopierUtil;
+import com.dgp.core.web.service.BaseBiz;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package ${package}.dto.${secondModuleName};
 
-import com.guokang.ms.core.http.request.BaseRequest;
+import com.dgp.core.http.request.BaseRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
