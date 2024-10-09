@@ -9,3 +9,6 @@
     # dgp-redis: 提供redis封装服务
     # dgp-mq: 提供基于easyexcel封装的excel服务
     # dgp-job: 提供基于xxl-job的封装的分布式任务服务
+    # dgp-file: 提供文件上传下载服务
+
+# dgp-code-generator: 提供代码生成器
